@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, ConfigDict
 from typing import List
 from app.schemas.profiles import Profile
 
@@ -10,5 +10,5 @@ class User(UserCreate):
     id: int
     profiles: List[Profile] = []
     favorite_profiles: List[Profile] = []
-    class Config:
-        from_attributes = True
+    
+    model_config = ConfigDict(from_attributes=True)
